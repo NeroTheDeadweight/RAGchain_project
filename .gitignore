@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+.env
+.venv
+dataset.jsonl
+.xml
+log.csv
+.idea
