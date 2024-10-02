@@ -1,0 +1,18 @@
+version: "3.9"
+
+networks:
+  net:
+    driver: bridge
+    name: test_net
+
+services:
+
+  gradio_service:
+    build:
+      context: .
+
+    ports:
+      - "7860:7860"
+    networks:
+      - net
+    env_file: .env

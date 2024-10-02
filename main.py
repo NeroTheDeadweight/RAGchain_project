@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 import getpass
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = getpass.getpass()
+# os.environ["OPENAI_API_KEY"] = getpass.getpass()
 dataset = '21.jsonl'
 sqlite_database = "sqlite:///data.db"
 engine = create_engine(sqlite_database, echo=True)
@@ -20,7 +20,7 @@ def new_db_file(set):
     return retriever
 
 retriever = new_db_file(dataset)
-llm = ChatOpenAI(model="gpt-3.5-turbo-0125")
+llm = ChatOpenAI(model="gpt-3.5-turbo-0125", api_key=os.environ["OPENAI_API_KEY"])
 prompt = hub.pull("rlm/rag-prompt")
 
 def format_docs(docs):
